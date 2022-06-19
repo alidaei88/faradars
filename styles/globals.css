@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  direction: rtl;
+}
+
+.btn-blue {
+  @apply w-full inline-flex items-center justify-center px-4 py-2 rounded-md text-white bg-blue-500 sm:w-auto sm:text-sm;
+}
