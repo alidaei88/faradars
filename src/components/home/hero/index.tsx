@@ -1,7 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
+import { useRouter } from "next/Router";
 
 export default function HomeHero() {
+  const searchRef: any = useRef<HTMLInputElement | undefined>()
+  const router = useRouter()
+
+  const submitHandel = (e: any) => {
+
+    e.preventDefault()
+    router.push(`/search/${searchRef.current.value}`);
+
+  }
   return (
     <section className="relative">
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
@@ -22,20 +33,21 @@ export default function HomeHero() {
             در بین هزاران ساعت آموزش فرادرسی جستجو کنید و به جمع میلیونی
             دانشجویان فرادرس بپیوندید.
           </h3>
-          <div className="text-center ">
+          <div className="text-center w-3/5 mx-auto">
             <form className="mb-5 sm:flex sm:items-center justify-center mb-15">
-              <div className="w-full sm:max-w-xs">
+              <div className="w-full">
                 <input
                   type="search"
                   name="search"
                   id="search"
                   className="h-10 px-2 shadow-sm w-full sm:text-sm border-[#90c4f2] rounded-sm focus:outline-none"
                   placeholder="جستجوی آموزش"
+                  ref={searchRef}
                 />
               </div>
               <button
-                type="submit"
                 className="mt-3 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent hover:bg-[#409444] hover:border-[#3d8b40] shadow-sm font-medium rounded-sm text-white bg-green-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm mr-2"
+                onClick={submitHandel}
               >
                 جستجو
               </button>

@@ -15,7 +15,7 @@ const MainMenu = () => {
     router.push(`/search/${searchRef.current.value}`);
   }
   return (
-    <nav className="w-full sticky top-0 right-0 z-10 bg-white border border-b border-[#E3E3E3]-100">
+    <nav className="container w-full px-6 sticky top-0 right-0 z-10 bg-white border border-b border-[#E3E3E3]-100">
       <div className="container flex justify-evenly items-center mx-auto">
         <div className="flex w-4/5 justify-start ">
           <div className="w-1/5">
@@ -27,14 +27,14 @@ const MainMenu = () => {
             />
           </div>
           
-          <div className="flex w-4/5">
+          <div className="flex w-4/6">
             <button className="bg-white hover:bg-[#1E88E5] hover:bg-opacity-10 text-[#1e85e5] h-8 font-semibold px-4 mx-4 my-auto border border-[#1e85e5] rounded">همه آموزش‌ها</button>
-              <div className="mt-1 relative w-1/4 flex items-baseline rounded-lg my-auto">
+              <div className=" mt-1 relative w-2/4 flex items-baseline rounded-lg my-auto">
                 <input
                   type="text"
                   name="search"
                   id="search"
-                  className="shadow-sm py-2  block w-full pr-2 my-3 sm:text-sm border-gray-300 rounded-md focus:shadow-md focus:outline-[#1E88E5]"
+                  className="shadow-sm py-2 block w-full pr-2 my-3 sm:text-sm border-gray-300 rounded-md focus:shadow-md focus:outline-[#1E88E5]"
                   placeholder="جستجوی آموزش..."                 
                   ref={searchRef}
                 />
@@ -47,10 +47,10 @@ const MainMenu = () => {
           </div>    
         </div>
         
-        <div className="flex justify-between align-middle w-1/5">
-          <p className="flex align-middle cursor-pointer text-[#495057]"> <span className="text-2xl mt-1 text-slate-500 ml-1" ><FaChalkboardTeacher  /></span>تدریس در فرادرس</p>
-          <p className="cursor-pointer text-[#495057]">ورود</p>
-          <p className="cursor-pointer text-[#495057]">ثبت نام</p>
+        <div className="flex justify-between align-middle w-2/6">
+          <p className="flex align-middle cursor-pointer text-[14px] text-[#495057]"> <span className="text-2xl mt-1 text-slate-500 ml-1" ><FaChalkboardTeacher  /></span>تدریس در فرادرس</p>
+          <p className="cursor-pointer text-[#495057] text-[14px]">ورود</p>
+          <p className="cursor-pointer text-[#495057] text-[14px]">ثبت نام</p>
         </div>
       </div> 
       

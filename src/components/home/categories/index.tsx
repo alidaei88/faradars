@@ -18,10 +18,10 @@ export default function HomeCategories() {
     <section className="bg-white container mx-auto">
       <div className="py-16 text-center">
         <h3 className="font-bold mb-12">موضوعات و محورهای آموزشی منتخب</h3>
-        <div className="grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 grid-cols-12 gap-y-20 gap-4">
+        <div className="grid xs:grid-cols-3 xxsm:grid-cols-2 xsm:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 grid-cols-12 gap-y-20 gap-4">
           {renderCats()}
         </div>
-        <button type="submit" className="btn-blue mt-16">
+        <button type="submit" className="btn-blue">
           همه آموزش ها
         </button>
       </div>

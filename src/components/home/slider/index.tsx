@@ -35,16 +35,15 @@ export default function HomeSlider(props: any) {
     ));
   }
   return (
-    <section className="bg-white container mx-auto">
+    <section className="bg-white container mx-auto md:px-10">
       <h3 className="my-4">{data.title}</h3>
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y, FreeMode]}
-        spaceBetween={30}
+        spaceBetween={15}
         slidesPerView={3.5}
         navigation
         freeMode
-        // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         // onSwiper={(swiper) => console.log(swiper)}
         // onSlideChange={() => console.log("slide change")}
