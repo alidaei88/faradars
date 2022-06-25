@@ -1,55 +1,46 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
+import { FaAngleLeft } from "react-icons/fa";
 import { Navigation, Pagination, Scrollbar, A11y, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SlideCard from "../../common/slideCard";
 
 export default function HomeSlider(props: any) {
-  console.log(props);
+  console.log("props:", props);
   const { data } = props;
-  function renderSlides() {
-    return data.products.map((product: any) => (
-      <SwiperSlide key={product.id} className="group relative">
-        <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-          />
-        </div>
-        <div className="mt-4 flex justify-between">
-          <div>
-            <h3 className="text-sm text-gray-700">
-              <Link href={`/lessons/${String(product.id)}`}>
-                <a>
-                  <span aria-hidden="true" className="absolute inset-0" />
-                  {product.name}
-                </a>
-              </Link>
-            </h3>
-            <p className="mt-1 text-sm text-gray-500">{product.title}</p>
-          </div>
-          <p className="text-sm font-medium text-gray-900">{product.price}</p>
-        </div>
-      </SwiperSlide>
-    ));
-  }
+
   return (
-    <section className="bg-white container mx-auto md:px-10">
-      <h3 className="my-4">{data.title}</h3>
+    <section className="flex flex-col bg-white container mt-36 mx-auto md:px-10">
+      <h3 className="my-4 text-xl">{ (data.products.length>0) && data.title }</h3>
       <Swiper
-        // install Swiper modules
+        className="container"
         modules={[Navigation, Pagination, Scrollbar, A11y, FreeMode]}
-        spaceBetween={15}
-        slidesPerView={3.5}
+        spaceBetween={10}
+        slidesPerView={3.3}
         navigation
         freeMode
-        // scrollbar={{ draggable: true }}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log("slide change")}
       >
-        {renderSlides()}
+        { 
+                data.products.map((product: any) => 
+                <SwiperSlide key={product.id} className="group" >
+                  <SlideCard product={ product }  />
+                </SwiperSlide>
+          )
+        }
       </Swiper>
+      {
+        (data.products.length > 0) &&
+        <div >
+        <Link href="#">
+          <a>
+            <button className="w-full inline-flex items-center justify-center px-6 py-3 mt-8 rounded-sm text-white bg-blue-500 sm:w-auto sm:text-sm float-left">
+              فهرست کامل <FaAngleLeft className="mr-1"/>
+            </button>  
+          </a>
+        </Link>  
+      </div>
+      }
+     
     </section>
   );
 }

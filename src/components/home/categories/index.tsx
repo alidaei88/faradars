@@ -21,7 +21,7 @@ export default function HomeCategories() {
         <div className="grid xs:grid-cols-3 xxsm:grid-cols-2 xsm:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 grid-cols-12 gap-y-20 gap-4">
           {renderCats()}
         </div>
-        <button type="submit" className="btn-blue">
+        <button type="submit" className="w-full inline-flex items-center justify-center px-6 py-3 mt-8 rounded-sm text-white bg-blue-500 sm:w-auto sm:text-sm">
           همه آموزش ها
         </button>
       </div>

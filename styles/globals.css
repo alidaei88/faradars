@@ -10,19 +10,13 @@ body {
   font-family: Shabnam;
 }
 
+.swiper-button-prev, .swiper-rtl .swiper-button-next  {
+  left: -40px;
+  right: auto;
+}
+
 .swiper-button-next, .swiper-rtl .swiper-button-prev {
-  color: #1e88e5;
-  background-color: aqua;
+  right: -40px;
+  left: auto;
 }
 
-/* .swiper-button-next::after, .swiper-rtl .swiper-button-prev::before {
-  width: 13px;
-}
-
-.swiper-button-next:disabled, .swiper-rtl:disabled .swiper-button-prev:disabled {
-  display: none;
-} */
-
-.btn-blue {
-  @apply w-full inline-flex items-center justify-center px-4 py-2 mt-8 rounded-md text-white bg-blue-500 sm:w-auto sm:text-sm;
-}
