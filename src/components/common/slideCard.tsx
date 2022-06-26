@@ -1,7 +1,8 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa";
-import { FC, ObjectHTMLAttributes } from "react"
+import { FC, ObjectHTMLAttributes } from "react";
+import { thousandSeprator } from "../../utils/helper";
 
 // interface IProduct {
 //   image: any,
@@ -11,14 +12,13 @@ import { FC, ObjectHTMLAttributes } from "react"
 // }
 
 interface ISlidCardProps {
-  product: any,
+  product: any;
 }
 
 const SlideCard: FC<ISlidCardProps> = (props) => {
-  const { product } = props
-  console.log(product.title, product.name)
+  const { product } = props;
   return (
-    <div className="w-full h-[290px] border border-l-amber-50 flex flex-col hover:shadow-md hover:shadow-amber-300 hover:border-amber-200 ">
+    <div className="w-full border border-l-amber-50 flex flex-col hover:shadow-md hover:shadow-amber-300 hover:border-amber-200 ">
       <div className="w-full overflow-hidden object-cover h-full">
         <Image
           layout="responsive"
@@ -29,24 +29,25 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
           className=""
         />
       </div>
-      <div className="h-[36%] pb-">
-        <h3 className="text-sm text-gray-500 pt-2 pr-5">
+      <div className="h-32">
+        <h3 className="text-sm text-gray-500 pt-4 px-4">
           <Link href={`/lessons/${String(product.id)}`}>
-            <a>
-              {product.title}
-            </a>
+            <a>{product.title}</a>
           </Link>
         </h3>
-
       </div>
       <div className="h-[17%] bg-[#f7f7f7] flex items-center justify-between align-baseline ">
-        <p className="text-gray-900 text-l mr-2">{product.price > 0 ? `${product.price} تومان ` : `رایگان!`}</p>
-        <div className="bg-[#5fbdec] text-white text-3xl p-2">
-          <FaCartPlus />
+        <p className="font-light mr-4">
+          {product.price > 0
+            ? `${thousandSeprator(product.price)} تومان `
+            : `رایگان!`}
+        </p>
+        <div className="bg-[#5fbdec] text-white text-3xl px-4 py-2">
+          <FaCartPlus className="p-1" />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SlideCard
+export default SlideCard;

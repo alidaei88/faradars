@@ -5,18 +5,18 @@ import Landings from "./landings";
 import HomeSlider from "./slider";
 
 const Home: FC = (props: any) => {
-
+  const { lessons, searches } = props;
   return (
     <>
-      <HomeHero />
+      <HomeHero tags={searches} />
       <HomeCategories />
-      {
-        !props.products ?
-          <p> هیچ داده ای یافت نشد </p> :
-          props.products.map((product: any, idx: number) => 
-            <HomeSlider key={idx} data={product} />
-          )
-      }
+      {!lessons.products ? (
+        <p> هیچ داده ای یافت نشد </p>
+      ) : (
+        lessons.products.map((product: any, idx: number) => (
+          <HomeSlider key={idx} data={product} />
+        ))
+      )}
       <Landings />
     </>
   );

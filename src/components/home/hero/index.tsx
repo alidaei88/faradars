@@ -2,18 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { useRouter } from "next/Router";
-import { home_statistics } from '../../../dummy/data'
+import { home_statistics } from "../../../dummy/data";
 
-export default function HomeHero() {
-  const searchRef: any = useRef<HTMLInputElement | undefined>()
-  const router = useRouter()
+export default function HomeHero({ tags }: any) {
+  const searchRef: any = useRef<HTMLInputElement | undefined>();
+  const router = useRouter();
 
   const submitHandel = (e: any) => {
-
-    e.preventDefault()
+    e.preventDefault();
     router.push(`/search/${searchRef.current.value}`);
-
-  }
+  };
   return (
     <section className="relative">
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
@@ -56,72 +54,26 @@ export default function HomeHero() {
           </div>
           <div className="mt-5 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
             <div className="flex flex-wrap items-between">
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  ریاضی
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  اکسل
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  فیزیک
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  اتوکد
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  فن بیان
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  زبان انگلیسی
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  زبان
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  فتوشاپ
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                  متلب
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                 ارز دیجیتال
-                </a>
-              </Link>
-              <Link href={"/lessons"}>
-                <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
-                پایتون  
-                </a>
-              </Link>
+              {tags &&
+                tags.map((tag: any, idx: number) => (
+                  <Link href={`/search/${tag.term}`} key={idx}>
+                    <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
+                      {tag.term}
+                    </a>
+                  </Link>
+                ))}
             </div>
           </div>
           <div className="grid lg:grid-cols-6 w-5/6 mx-auto mt-20 bg-[#00000066] p-6 md:grid-cols-3 md:gap-y-6 xsm:grid-cols-2 xsm:gap-y-6">
-            {
-              home_statistics.map((item, idx) => 
-                <div key={idx} className="flex flex-col justify-center items-center">
-                  <p className="text-white">  {item.statistics} +</p>
-                  <p className="text-white">{ item.title }</p>
+            {home_statistics.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col justify-center items-center"
+              >
+                <p className="text-white"> {item.statistics} +</p>
+                <p className="text-white">{item.title}</p>
               </div>
-                )
-            }
+            ))}
           </div>
         </div>
       </div>
