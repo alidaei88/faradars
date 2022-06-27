@@ -30,7 +30,7 @@ const MainMenu = () => {
           </div>
 
           <div className="flex w-4/6">
-            <button className="bg-white hover:bg-[#1E88E5] hover:bg-opacity-10 text-[#1e85e5] h-8 font-semibold px-4 mx-4 my-auto border border-[#1e85e5] rounded">همه آموزش‌ها</button>
+            <button className="bg-white hover:bg-[#1E88E5] hover:bg-opacity-10 text-[#1e85e5] font-normal h-8 px-4 mx-4 my-auto border border-[#1e85e5] rounded">همه آموزش‌ها</button>
             <div className=" mt-1 relative w-2/4 flex items-baseline rounded-lg my-auto">
               <input
                 type="text"

@@ -115,7 +115,7 @@ function Footer() {
   }
   return (
     <footer>
-      <div className="container mx-auto mt-6">
+      {/* <div className="container mx-auto mt-6">
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
           <div className="col-span-1">{footers()}</div>
           <div className="col-span-1">{footers()}</div>
@@ -123,8 +123,8 @@ function Footer() {
           <div className="col-span-1">{footers()}</div>
           <div className="col-span-1">{footers()}</div>
         </div>
-      </div>
-      <div className="bg-gray-300">
+      </div> */}
+      {/* <div className="bg-gray-300">
         <div className="container mx-auto mt-8 py-6">
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
             <div className="col-span-1">{footers()}</div>
@@ -174,8 +174,8 @@ function Footer() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="bg-gray-700">
+      </div> */}
+      <div className="flex justify-center bg-gray-700 ">
         <div className="container">
           <div className="flex p-4 justify-center">
             {navigation.social.map((item) => (
