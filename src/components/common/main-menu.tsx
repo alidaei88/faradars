@@ -4,8 +4,9 @@ import { FC, InputHTMLAttributes, MutableRefObject, useRef } from "react";
 import { VscSearch } from 'react-icons/vsc';
 import { FaChalkboardTeacher } from 'react-icons/fa'
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-const MainMenu = () => {
+const MainMenu:FC = () => {
 
   const searchRef: any = useRef<HTMLInputElement | null>()
   const router = useRouter()
@@ -51,7 +52,11 @@ const MainMenu = () => {
 
         <div className="flex justify-between align-middle w-2/6">
           <p className="flex align-middle cursor-pointer text-[14px] text-[#495057]"> <span className="text-2xl mt-1 text-slate-500 ml-1" ><FaChalkboardTeacher /></span>تدریس در فرادرس</p>
-          <p className="cursor-pointer text-[#495057] text-[14px]">ورود</p>
+          <Link href={"/login"}>
+            <a>
+               <p className="cursor-pointer text-[#495057] text-[14px]">ورود</p>
+            </a>
+          </Link>
           <p className="cursor-pointer text-[#495057] text-[14px]">ثبت نام</p>
         </div>
       </div>
