@@ -9,15 +9,27 @@ import Link from 'next/link';
 const Login: FC = () => {
 
   const [isHidden, setIsHidden] = useState<HTMLButtonElement | Boolean>(true)
-  // const [form, setForm] = useState<HTMLFormElement | Object> ({username: "", password: ""})
-  const [userName, setUserName] = useState<HTMLInputElement | null>()
-  const [password, setPassword] = useState<HTMLInputElement | null>()
+  const [formData, setFormData] = useState<any>({ userName: "", password: "" })
+  const [userName, setUserName] = useState<HTMLInputElement | string>()
+  const [password, setPassword] = useState<HTMLInputElement | string>()
+  const [emailIsIncorrect, setEmailIsIncorrect] = useState<any>(false)
+  const [passwordlIsCorrect, setPasswordIsCorrect] = useState<any>(false)
 
-  // const handleChange: any = (key: string, e: React.ChangeEvent<HTMLInputElement>): any => {
-  //   const value = e.target.value
+  const handleEmailChange: any = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    if (!value.includes("@" && ".com") && value.length > 0) {
+      setEmailIsIncorrect(true)
+    } else setEmailIsIncorrect(false)
 
+    setUserName(value)
+  }
 
-  // }
+  const handlePasswordChange: any = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    if (value.length > 6)  setPasswordIsCorrect(true)
+    setUserName(value)
+  }
+
   const handleSubmit = () => {
 
   }
@@ -31,7 +43,7 @@ const Login: FC = () => {
           <form className=" w-fuul flex flex-col justify-between items-center space-y-6 " onSubmit={handleSubmit}>
             <div className='w-3/4'>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                شماره موبایل یا ایمیل<span className='text-red-800 mr-1'>(الزامی)</span>
+                شماره موبایل یا ایمیل {/*<span className='text-red-800 mr-1'>(الزامی)</span> */}
               </label>
               <div className="mt-1">
                 <input
@@ -41,15 +53,18 @@ const Login: FC = () => {
                   autoComplete="email"
                   required
                   className="appearance-none text-center block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  // onChange={(name: string, e: React.ChangeEvent<HTMLInputElement>) => (name, e) }
-                  onChange={ (e: any) => setUserName(e.target.value) }
+                  onChange={handleEmailChange }
                 />
+                {
+                  emailIsIncorrect && <p className='text-xs text-red-800 font-medium'>لطفا ایمیل را صحیح وارد کنید.</p>
+                }
+                
               </div>
             </div>
 
             <div className='w-3/4'>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                رمز عبور<span className='text-red-800 mr-1'>(الزامی)</span>
+                رمز عبور {/*<span className='text-red-800 mr-1'>(الزامی)</span> */}
               </label>
               <div className="mt-1 relative">
                 <input
@@ -59,7 +74,7 @@ const Login: FC = () => {
                   autoComplete="current-password"
                   required
                   className="appearance-none text-center block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  onChange={ (e: any) => setPassword(e.target.value) }
+                  onChange={ handlePasswordChange }
                 />
                 <FaEyeSlash className={`${ isHidden ? "absolute left-2 top-3 cursor-pointer" : "hidden"}`} onClick={ (e: any) => setIsHidden(prev => !prev)} />
                 <FaEye className={`${ isHidden ? "hidden" : "absolute left-2 top-3 cursor-pointer"}`} onClick={ (e: any) => setIsHidden(prev => !prev)} />
@@ -78,8 +93,8 @@ const Login: FC = () => {
             <div className='w-3/4'>
               <button
                 type="submit"
-                className="w-full text-[#b0b0b8]  bg-[#f1f1f1] flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium"
-                // disabled={isHidden}
+                className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1E88E5] disabled:text-[#b0b0b8] disabled:bg-[#f1f1f1]`}
+                disabled={!passwordlIsCorrect || emailIsIncorrect}
               >
                 ورود
               </button>
