@@ -5,13 +5,16 @@ import Header from '../layout/header'
 import { FcGoogle } from "react-icons/fc"
 import { FaLinkedin, FaEyeSlash, FaEye } from "react-icons/fa"
 import Link from 'next/link';
+import axios from 'axios';
+
+const url: string = "https://faradars.org/api/v1.1/login";
+
 
 const Login: FC = () => {
 
   const [isHidden, setIsHidden] = useState<HTMLButtonElement | Boolean>(true)
-  const [formData, setFormData] = useState<any>({ userName: "", password: "" })
-  const [userName, setUserName] = useState<HTMLInputElement | string>()
-  const [password, setPassword] = useState<HTMLInputElement | string>()
+  const [userName, setUserName] = useState<any>()
+  const [password, setPassword] = useState<any>()
   const [emailIsIncorrect, setEmailIsIncorrect] = useState<any>(false)
   const [passwordlIsCorrect, setPasswordIsCorrect] = useState<any>(false)
 
@@ -27,11 +30,27 @@ const Login: FC = () => {
   const handlePasswordChange: any = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     if (value.length > 6)  setPasswordIsCorrect(true)
-    setUserName(value)
+      setPassword(value)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
 
+    console.log("hello")
+
+    const data: any = {
+      username: userName,
+      password: password
+    };
+  
+    const res = axios.post(url, data, {
+      headers: {
+        'accept': "application/json",
+        'content-type': "application/json",
+        'X-CSRF-TOKEN': "", 
+     }
+   })
+      .then(res => console.log("response:",res))
   }
 
   return (
@@ -48,8 +67,9 @@ const Login: FC = () => {
               <div className="mt-1">
                 <input
                   id="email"
-                  name="email"
+                  name="userName"
                   type="email"
+                  value={userName}
                   autoComplete="email"
                   required
                   className="appearance-none text-center block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -72,6 +92,7 @@ const Login: FC = () => {
                   name="password"
                   type={`${isHidden ? "password" : "text"}`}
                   autoComplete="current-password"
+                  value={password}
                   required
                   className="appearance-none text-center block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   onChange={ handlePasswordChange }
@@ -82,11 +103,12 @@ const Login: FC = () => {
             </div>
 
             <div className="flex items-center justify-between">
-
               <div className="text-sm ">
-                <a href="#" className="font-semibold text-[#1e88E5] hover:text-indigo-500">
-                  رمز عبور خود را فراموش کرده‌اید؟
-                </a>
+                <Link href={`/login/forget`}>
+                    <a href="#" className="font-semibold text-[#1e88E5] hover:text-indigo-500">
+                      رمز عبور خود را فراموش کرده‌اید؟
+                    </a>
+                </Link>
               </div>
             </div>
 
