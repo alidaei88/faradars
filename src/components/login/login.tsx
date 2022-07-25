@@ -46,8 +46,7 @@ const Login: FC = () => {
     const res = axios.post(url, data, {
       headers: {
         'accept': "application/json",
-        'content-type': "application/json",
-        'X-CSRF-TOKEN': "", 
+        'content-type': "application/json", 
      }
    })
       .then(res => console.log("response:",res))
