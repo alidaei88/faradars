@@ -24,10 +24,10 @@ export async function getStaticProps() {
   const res = await fetch(`https://faradars.org/api/v1.1/application/home`);
   const lessons = await res.json();
 
-  const repeatrRes = await fetch(
+  const repeatRes = await fetch(
     "https://faradars.org/api/v1.1/searches/repeated"
   );
-  const searches = await repeatrRes.json();
+  const searches = await repeatRes.json();
   return {
     props:
       {

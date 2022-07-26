@@ -6,8 +6,10 @@ import { FcGoogle } from "react-icons/fc"
 import { FaLinkedin, FaEyeSlash, FaEye } from "react-icons/fa"
 import Link from 'next/link';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const url: string = "https://faradars.org/api/v1.1/login";
+const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 
 const Login: FC = () => {
@@ -17,10 +19,12 @@ const Login: FC = () => {
   const [password, setPassword] = useState<any>()
   const [emailIsIncorrect, setEmailIsIncorrect] = useState<any>(false)
   const [passwordlIsCorrect, setPasswordIsCorrect] = useState<any>(false)
+  const router = useRouter();
 
   const handleEmailChange: any = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    if (!value.includes("@" && ".com") && value.length > 0) {
+    const value: string = e.target.value
+    // if (!value.includes("@" && ".com") && value.length > 0) {
+    if ((!regex.test(value)) && value.length > 0) {
       setEmailIsIncorrect(true)
     } else setEmailIsIncorrect(false)
 
@@ -36,27 +40,26 @@ const Login: FC = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    console.log("hello")
-
     const data: any = {
       username: userName,
-      password: password
+      password: password,
+      code: 1
     };
-  
-    const res = axios.post(url, data, {
+    const response = axios.post(url, data, {
       headers: {
         'accept': "application/json",
         'content-type': "application/json", 
      }
-   })
-      .then(res => console.log("response:",res))
+    })
+      // .then(res => console.log(res))
+      .then(res => localStorage.setItem("data", JSON.stringify(res.data)))
+    router.push(`/`)
   }
-
   return (
     <div className='flex flex-col h-screen'>
       <Header />
       <section className='container w-full p-6 mx-auto flex flex-row justify-evenly items-center my-8 flex-grow'>
-        <div className='container lg:w-1/3 md:full sm:w-full xsm:w-full  mx-6 p-6 border border-[#ced4da] shadow-md'>
+        <div className='container lg:w-1/3 md:w-full sm:w-full xsm:w-full  mx-6 p-6 border border-[#ced4da] shadow-md'>
           <h1 className='text-[#455057] text-center text-2xl mt-2 mb-4 '>ورود به حساب کاربری</h1>
           <form className=" w-fuul flex flex-col justify-between items-center space-y-6 " onSubmit={handleSubmit}>
             <div className='w-3/4'>
@@ -76,11 +79,9 @@ const Login: FC = () => {
                 />
                 {
                   emailIsIncorrect && <p className='text-xs text-red-800 font-medium'>لطفا ایمیل را صحیح وارد کنید.</p>
-                }
-                
+                }           
               </div>
             </div>
-
             <div className='w-3/4'>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 رمز عبور {/*<span className='text-red-800 mr-1'>(الزامی)</span> */}
@@ -144,7 +145,7 @@ const Login: FC = () => {
             </p>
           </form>
         </div>
-        <div className='container w-1/3 md:block sm:hidden xsm:hidden xxsm:hidden '>
+        <div className='container lg:w-1/3 md:block md:w-2/3 sm:hidden xsm:hidden xxsm:hidden '>
           <Image
             width={402}
             height={375}

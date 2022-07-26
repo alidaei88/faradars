@@ -12,7 +12,6 @@ const MainMenu:FC = () => {
   const router = useRouter()
 
   const handleSearch = () => {
-
     router.push(`/search/${searchRef.current.value}`);
   }
   return (
@@ -20,7 +19,9 @@ const MainMenu:FC = () => {
       <div className="container flex justify-evenly items-center mx-auto">
         <div className="flex w-4/5 justify-start ">
           <div className="w-1/5 flex justify-center items-center">
-            <Image
+            <Link href="/">
+              <a>
+              <Image
               className="h-14 w-28 mx-8 mt-3 "
               alt="logo"
               width={106}
@@ -28,6 +29,8 @@ const MainMenu:FC = () => {
               layout={"fixed"}
               src={"/images/logos/logo.svg"}
             />
+              </a>
+            </Link> 
           </div>
 
           <div className="flex w-4/6">
@@ -57,7 +60,12 @@ const MainMenu:FC = () => {
                <p className="cursor-pointer text-[#495057] text-[14px]">ورود</p>
             </a>
           </Link>
-          <p className="cursor-pointer text-[#495057] text-[14px]">ثبت نام</p>
+          <Link href={`/register`} >
+            <a>
+            <p className="cursor-pointer text-[#495057] text-[14px]">ثبت نام</p>
+            </a>
+          </Link>
+          
         </div>
       </div>
 
