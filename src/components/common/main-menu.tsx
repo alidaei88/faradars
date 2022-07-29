@@ -1,15 +1,28 @@
-/* eslint-disable @next/next/no-img-element */
 import Image, { ImageProps } from "next/image";
-import { FC, InputHTMLAttributes, MutableRefObject, useRef } from "react";
+import { FC, InputHTMLAttributes, MutableRefObject, useRef, useEffect, useState } from "react";
 import { VscSearch } from 'react-icons/vsc';
-import { FaChalkboardTeacher } from 'react-icons/fa'
+import { FaChalkboardTeacher, FaUserCircle } from 'react-icons/fa'
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const MainMenu:FC = () => {
+const MainMenu: FC = () => {
 
-  const searchRef: any = useRef<HTMLInputElement | null>()
-  const router = useRouter()
+  const searchRef: any = useRef<HTMLInputElement | null>();
+  const router = useRouter();
+  const [isLogin, setIsLogin] = useState("")
+
+  useEffect(() => {
+
+    try {    
+    const userData = JSON.parse(localStorage.getItem("data") || "")
+    setIsLogin(userData.token)
+    // console.log(userData)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }, [])
+  
 
   const handleSearch = () => {
     router.push(`/search/${searchRef.current.value}`);
@@ -54,17 +67,28 @@ const MainMenu:FC = () => {
         </div>
 
         <div className="flex justify-between align-middle w-2/6">
-          <p className="flex align-middle cursor-pointer text-[14px] text-[#495057]"> <span className="text-2xl mt-1 text-slate-500 ml-1" ><FaChalkboardTeacher /></span>تدریس در فرادرس</p>
-          <Link href={"/login"}>
-            <a>
-               <p className="cursor-pointer text-[#495057] text-[14px]">ورود</p>
-            </a>
-          </Link>
-          <Link href={`/register`} >
-            <a>
-            <p className="cursor-pointer text-[#495057] text-[14px]">ثبت نام</p>
-            </a>
-          </Link>
+          <p className="flex items-center align-middle cursor-pointer text-[14px] text-[#495057]"> <span className="text-2xl mt-1 text-slate-500 ml-1" ><FaChalkboardTeacher /></span>تدریس در فرادرس</p>
+          {
+            isLogin ? 
+              <Link href={"/userAccount"}>
+                <a>
+                  <p className="flex items-center align-middle cursor-pointer text-[14px] text-[#495057]"> <span className="text-2xl mt-1 text-slate-500 ml-1" ><FaUserCircle /></span>حساب کاربری</p>
+                </a>
+              </Link>
+              :
+              <>
+                <Link href={"/login"}>
+                <a>
+                  <p className="cursor-pointer text-[#495057] text-[14px]">ورود</p>
+                </a>
+              </Link><Link href={`/register`}>
+                  <a>
+                    <p className="cursor-pointer text-[#495057] text-[14px]">ثبت نام</p>
+                  </a>
+                </Link>
+              </>
+          }
+          
           
         </div>
       </div>

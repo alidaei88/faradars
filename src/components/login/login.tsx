@@ -53,7 +53,7 @@ const Login: FC = () => {
     })
       // .then(res => console.log(res))
       .then(res => localStorage.setItem("data", JSON.stringify(res.data)))
-    router.push(`/`)
+       router.push(`/`)
   }
   return (
     <div className='flex flex-col h-screen'>

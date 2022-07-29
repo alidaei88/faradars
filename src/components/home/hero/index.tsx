@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { useRouter } from "next/Router";
+import { useRouter } from "next/router";
 import { home_statistics } from "../../../dummy/data";
 
 export default function HomeHero({ tags }: any) {
