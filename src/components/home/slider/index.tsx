@@ -6,12 +6,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SlideCard from "../../common/slideCard";
 
 export default function HomeSlider(props: any) {
-  console.log("props:", props);
   const { data } = props;
-
   return (
-    <section className="flex flex-col bg-white container mt-36 mx-auto md:px-12">
-      <h3 className="my-4 text-xl">{data.products.length > 0 && data.title}</h3>
+    <section className="flex flex-col bg-white container mt-30 mx-auto md:px-12">
+      <h3 className="my-4 text-lg">{ data.products.length > 0 && data.title }</h3>
       <Swiper
         className="container"
         modules={[Navigation, Pagination, Scrollbar, A11y, FreeMode]}

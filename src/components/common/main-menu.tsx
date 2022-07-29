@@ -12,7 +12,6 @@ const MainMenu: FC = () => {
   const [isLogin, setIsLogin] = useState("")
 
   useEffect(() => {
-
     try {    
     const userData = JSON.parse(localStorage.getItem("data") || "")
     setIsLogin(userData.token)
