@@ -18,7 +18,7 @@ const UserAccountPage: NextPage = () => {
             setEmail(userData?.data?.user?.email)
             console.log(userData)
         } catch (err) {
-                console.log(err)
+            console.log(err)
         }
 
     }, [])
@@ -27,25 +27,25 @@ const UserAccountPage: NextPage = () => {
         router.push("/")
     }
     return (
-    <div className="flex flex-col">
-      <Header className="w-full" />
-      <div className=" flex h-[85vh] items-start justify-center mt-10 ">    
-          {
-              email ?
-              <div className="w-full flex justify-center items-center ">
-                       <div className="mx-5"><FaUserAlt /></div>     
-                      {email}
-                      <button onClick={handleClick} className="p-3 mx-5 border-none bg-red-400 text-center text-lg text-red-900 rounded-md">خروج از سیستم</button>
-              </div>
-                  :
-               <p>user not found</p>
+        <div className="flex flex-col">
+            <Header className="w-full" />
+            <div className=" flex h-[85vh] items-start justify-center mt-10 ">
+                {
+                    email ?
+                        <div className="w-full flex justify-center items-center ">
+                            <div className="mx-5"><FaUserAlt /></div>
+                            {email}
+                            <button onClick={handleClick} className="p-3 mx-5 border-none bg-red-400 text-center text-lg text-red-900 rounded-md">خروج از سیستم</button>
+                        </div>
+                        :
+                        <p>user not found</p>
 
-          }
+                }
             </div>
-            <Footer className="w-full" />
+            <Footer />
         </div>
-     
-  )
+
+    )
 }
 
 export default UserAccountPage
