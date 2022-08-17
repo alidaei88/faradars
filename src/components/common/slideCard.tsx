@@ -18,7 +18,7 @@ interface ISlidCardProps {
 const SlideCard: FC<ISlidCardProps> = (props) => {
   const { product } = props;
   return (
-    <div className="w-full border border-l-amber-50 flex flex-col hover:shadow-md hover:shadow-amber-300 hover:border-amber-200 ">
+    <div className="w-full border border-l-amber-50 flex flex-col hover:shadow-md hover:shadow-amber-300 hover:border-amber-200 mx-0 ">
       <div className="w-full overflow-hidden object-cover h-full">
         <Image
           layout="responsive"

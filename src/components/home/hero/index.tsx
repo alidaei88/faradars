@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useRouter } from "next/router";
 import { home_statistics } from "../../../dummy/data";
+import { thousandSeprator } from "../../../utils/helper"
 
 export default function HomeHero({ tags }: any) {
   const searchRef: any = useRef<HTMLInputElement | undefined>();
@@ -14,7 +15,7 @@ export default function HomeHero({ tags }: any) {
   };
   return (
     <section className="relative">
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
+      <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gray-200" />
       <div className="w-full">
         <div className="absolute inset-0">
           <div className="h-full w-full object-cover">
@@ -27,25 +28,25 @@ export default function HomeHero({ tags }: any) {
           </div>
           <div className="absolute inset-0 bg-gray-400 mix-blend-multiply" />
         </div>
-        <div className="relative py-16 sm:py-24 lg:py-32 container mx-auto">
-          <h3 className="text-center text-lg text-white mb-6">
+        <div className="relative py-6 px-5 container mx-auto">
+          <h3 className="text-center text-[1rem] font-normal contrast-200 text-white mb-6">
             در بین هزاران ساعت آموزش فرادرسی جستجو کنید و به جمع میلیونی
             دانشجویان فرادرس بپیوندید.
           </h3>
-          <div className="text-center w-3/5 mx-auto">
-            <form className="mb-5 sm:flex sm:items-center justify-center mb-15">
+          <div className="text-center w-2/5 lg:min-w-0 md:min-w-full mx-auto">
+            <form className="mb-5 max-w-full sm:flex sm:items-center justify-center mb-15">
               <div className="w-full">
                 <input
                   type="search"
                   name="search"
                   id="search"
-                  className="h-10 px-2 shadow-sm w-full sm:text-sm border-[#90c4f2] rounded-sm focus:outline-none"
-                  placeholder="جستجوی آموزش"
+                  className="h-9 px-2 py-3 shadow-sm w-full sm:text-sm border-[#90c4f2] rounded-[0.25rem] focus:outline-none focus:border-2 focus:border-[#80bdff] placeholder:font-thin placeholder:text-[#495057] placeholder:xl:text-sm placeholder:xxsm:text-xs"
+                  placeholder="جستجوی آموزش ..."
                   ref={searchRef}
                 />
               </div>
               <button
-                className="mt-3 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent hover:bg-[#409444] hover:border-[#3d8b40] shadow-sm font-medium rounded-sm text-white bg-green-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm mr-2"
+                className="mt-3 w-full inline-flex items-center bg-[#28A745] justify-center px-4 py-2 border border-transparent shadow-sm font-extralight text-[#ffffff] hover:bg-[#218838] hover:border-[#1e7e34] sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm mr-2"
                 onClick={submitHandel}
               >
                 جستجو
@@ -53,25 +54,25 @@ export default function HomeHero({ tags }: any) {
             </form>
           </div>
           <div className="mt-5 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-            <div className="flex flex-wrap items-between">
+            <div className="flex flex-wrap items-between px-2">
               {tags &&
                 tags.map((tag: any, idx: number) => (
                   <Link href={`/search/${tag.term}`} key={idx}>
-                    <a className="flex items-center justify-center px-2 py-2 ml-2 rounded-xl text-xs bg-white hover:bg-indigo-50">
+                    <a className="flex items-center justify-center px-1 py-2 ml-2 rounded-xl text-xs bg-white hover:">
                       {tag.term}
                     </a>
                   </Link>
                 ))}
             </div>
           </div>
-          <div className="grid lg:grid-cols-6 w-5/6 mx-auto mt-20 bg-[#00000066] p-6 md:grid-cols-3 md:gap-y-6 xsm:grid-cols-2 xsm:gap-y-6">
+          <div className="grid lg:grid-cols-6 container mx-auto mt-20 bg-[#00000066] p-4 md:grid-cols-3 md:gap-y-6 xsm:grid-cols-2 xsm:gap-y-6">
             {home_statistics.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-center items-center"
+                className="flex flex-col justify-center items-center py-1"
               >
-                <p className="text-white"> {item.statistics} +</p>
-                <p className="text-white">{item.title}</p>
+                <p className="text-white text-lg font-normal"> {thousandSeprator(item.statistics)} +</p>
+                <p className="text-white text-xs font-light">{item.title}</p>
               </div>
             ))}
           </div>

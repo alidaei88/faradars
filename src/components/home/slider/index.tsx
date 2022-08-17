@@ -9,14 +9,14 @@ export default function HomeSlider(props: any) {
   const { data } = props;
   return (
     <section className="flex flex-col bg-white container mt-30 mx-auto md:px-12">
-      <h3 className="my-4 text-lg">{data.products.length > 0 && data.title}</h3>
+      <h3 className="my-6 mr-14 text-lg">{data.products.length > 0 && data.title}</h3>
       <Swiper
-        className="container"
+        className="container w-11/12"
         modules={[Navigation, Pagination, Scrollbar, A11y, FreeMode]}
         breakpoints={{
           320: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 18,
           },
 
           640: {
@@ -36,7 +36,7 @@ export default function HomeSlider(props: any) {
         freeMode
       >
         {data.products.map((product: any) => (
-          <SwiperSlide key={product.id} className="group">
+          <SwiperSlide key={product.id} className="mx-0">
             <SlideCard product={product} />
           </SwiperSlide>
         ))}
@@ -45,8 +45,8 @@ export default function HomeSlider(props: any) {
         <div>
           <Link href="#">
             <a>
-              <button className="w-full inline-flex items-center justify-center px-6 py-3 mt-8 rounded-sm text-white bg-blue-500 sm:w-auto sm:text-sm float-left">
-                فهرست کامل <FaAngleLeft className="mr-1" />
+              <button className="w-full inline-flex items-center justify-center px-10 py-3 mt-8 ml-14 rounded-sm text-white bg-[#1e88e5] sm:w-auto sm:text-sm float-left hover:bg-[#1774c6]">
+                فهرست کامل <FaAngleLeft className="mr-1 font-semibold text-lg" />
               </button>
             </a>
           </Link>

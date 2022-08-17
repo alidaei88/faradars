@@ -14,7 +14,7 @@ const Landings: FC = () => {
         width={1190}
         height={199.44}
       />
-      <div className=" text-center bg-[#181818] pb-16">
+      <div className=" text-center bg-[#181818] pb-16 ">
         <h1 className="text-white text-[32px]">
           {" "}
           مسیرهای یادگیری و مجموعه‌های آموزشی{" "}
