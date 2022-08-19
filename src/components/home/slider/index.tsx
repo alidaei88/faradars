@@ -7,6 +7,7 @@ import SlideCard from "../../common/slideCard";
 
 export default function HomeSlider(props: any) {
   const { data } = props;
+
   return (
     <section className="flex flex-col bg-white container mt-30 mx-auto md:px-12">
       <h3 className="my-6 mr-14 text-lg">{data.products.length > 0 && data.title}</h3>

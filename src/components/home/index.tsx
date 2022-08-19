@@ -3,9 +3,11 @@ import HomeCategories from "./categories";
 import HomeHero from "./hero";
 import Landings from "./landings";
 import HomeSlider from "./slider";
+import Teaching from "./teaching";
 
 const Home: FC = (props: any) => {
   const { lessons, searches } = props;
+
   return (
     <>
       <HomeHero tags={searches} />
@@ -18,6 +20,7 @@ const Home: FC = (props: any) => {
         ))
       )}
       <Landings />
+      <Teaching />
     </>
   );
 };

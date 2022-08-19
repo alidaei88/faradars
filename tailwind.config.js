@@ -5,7 +5,11 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'cardShadow': '0px 1px 1px -5px rgba(0, 0, 0, 0.3)',
+      }
+    },
     screens: {
       "xxsm": '150px',
       // => @media (min-width: 640px) { ... }

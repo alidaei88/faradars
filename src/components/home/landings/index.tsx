@@ -6,7 +6,7 @@ const topLandings = landings.splice(0, 10);
 
 const Landings: FC = () => {
   return (
-    <>
+    <div className="mb-4">
       <Image
         src="/images/bg/road.svg"
         alt="how to learn"
@@ -69,7 +69,7 @@ const Landings: FC = () => {
           مشاهده همه
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

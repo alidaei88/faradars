@@ -7,7 +7,7 @@ export default function HomeCategories() {
   return (
     <section className="bg-white container mx-auto">
       <div className="py-16 text-center">
-        <h3 className="font-bold text-lg mb-8">موضوعات و محورهای آموزشی منتخب</h3>
+        <h3 className="font-bold text-lg mb-2">موضوعات و محورهای آموزشی منتخب</h3>
         <div className="grid mx-28 justify-items-center xs:grid-cols-3 xxsm:grid-cols-2 xsm:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 grid-cols-12 gap-y-2  gap-4 ">
           {
             home_categories.map((item) => (

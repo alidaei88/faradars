@@ -14,8 +14,8 @@ export default function HomeHero({ tags }: any) {
     router.push(`/search/${searchRef.current.value}`);
   };
   return (
-    <section className="relative">
-      <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gray-200" />
+    <section className="relative pb-14">
+      <div className="absolute inset-x-0 bottom-0 bg-gray-200" />
       <div className="w-full">
         <div className="absolute inset-0">
           <div className="h-full w-full object-cover">
@@ -58,18 +58,18 @@ export default function HomeHero({ tags }: any) {
               {tags &&
                 tags.map((tag: any, idx: number) => (
                   <Link href={`/search/${tag.term}`} key={idx}>
-                    <a className="flex items-center justify-center px-1 py-2 ml-2 rounded-xl text-xs bg-white hover:">
+                    <a className="flex items-center justify-center px-1 py-2 ml-2 rounded-xl text-xs font-light bg-white hover:">
                       {tag.term}
                     </a>
                   </Link>
                 ))}
             </div>
           </div>
-          <div className="grid lg:grid-cols-6 container mx-auto mt-20 bg-[#00000066] p-4 md:grid-cols-3 md:gap-y-6 xsm:grid-cols-2 xsm:gap-y-6">
+          <div className="grid w-5/6 lg:grid-cols-6 container mx-auto mt-20 bg-[#00000066] p-4  md:grid-cols-3 md:gap-y-6 xsm:grid-cols-2 xsm:gap-y-6">
             {home_statistics.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-center items-center py-1"
+                className="flex flex-col  justify-center items-center py-1"
               >
                 <p className="text-white text-lg font-normal"> {thousandSeprator(item.statistics)} +</p>
                 <p className="text-white text-xs font-light">{item.title}</p>
