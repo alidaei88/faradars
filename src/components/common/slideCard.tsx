@@ -5,8 +5,8 @@ import { AiFillHeart } from "react-icons/ai"
 import { BsFillHeartFill } from "react-icons/bs"
 import { FC, ObjectHTMLAttributes, useState } from "react";
 import { thousandSeprator } from "../../utils/helper";
-import TooltipModal from "../tooltipModal";
-import ReactTooltip from 'react-tooltip';
+// import TooltipModal from "../tooltipModal";
+// import ReactTooltip from 'react-tooltip';
 
 // interface IProduct {
 //   image: any,
@@ -101,7 +101,7 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
           {
                       (() => {
                         if (product.price == 10000) {
-                          return <FaAngleLeft className="mr-1 font-semibold text-3xl" />
+                          return <FaAngleLeft className="mr-1 font-semibold text-2xl mx-1" />
                         } else if (product.price > 10000) {
                            return  <FaCartPlus className="font-semibold text-2xl mx-1" />
                         } else {

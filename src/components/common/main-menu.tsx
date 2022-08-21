@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import { FC, InputHTMLAttributes, MutableRefObject, useRef, useEffect, useState, useContext } from "react";
 import { VscSearch } from 'react-icons/vsc';
 import { FaChalkboardTeacher, FaUserCircle } from 'react-icons/fa'
@@ -52,7 +52,7 @@ const MainMenu: FC = () => {
         </div>
         <div className="xl:mr-[80px] mt-2 xxsm:mr-[10px]">
           <Link href="/">
-            <a className="">
+            <a >
               <Image
                 alt="logo"
                 width={106}

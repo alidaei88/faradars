@@ -1,31 +1,9 @@
 import Image from "next/image";
 import { SVGProps } from "react";
+import AppDownload from "../home/appDownload";
+import RegOrLogin from "../home/regOrLogin"
 
 const navigation = {
-  solutions: [
-    { name: "Marketing", href: "#" },
-    { name: "Analytics", href: "#" },
-    { name: "Commerce", href: "#" },
-    { name: "Insights", href: "#" },
-  ],
-  support: [
-    { name: "Pricing", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "Guides", href: "#" },
-    { name: "API Status", href: "#" },
-  ],
-  company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Partners", href: "#" },
-  ],
-  legal: [
-    { name: "Claim", href: "#" },
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
-  ],
   social: [
     {
       name: "Facebook",
@@ -92,89 +70,11 @@ const navigation = {
 };
 
 function Footer() {
-  function footers() {
-    return (
-      <div>
-        <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-          Solutions
-        </h3>
-        <ul role="list" className="mt-4 space-y-4">
-          {navigation.solutions.map((item) => (
-            <li key={item.name}>
-              <a
-                href={item.href}
-                className="text-base text-gray-500 hover:text-gray-900"
-              >
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+
   return (
     <footer>
-      {/* <div className="container mx-auto mt-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
-          <div className="col-span-1">{footers()}</div>
-          <div className="col-span-1">{footers()}</div>
-          <div className="col-span-1">{footers()}</div>
-          <div className="col-span-1">{footers()}</div>
-          <div className="col-span-1">{footers()}</div>
-        </div>
-      </div> */}
-      {/* <div className="bg-gray-300">
-        <div className="container mx-auto mt-8 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
-            <div className="col-span-1">{footers()}</div>
-            <div className="col-span-3">
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                درباره فرادرس
-              </h3>
-              <p>
-                سازمان علمی و آموزشی «فرادرس» (FaraDars) از قدیمی‌ترین
-                وب‌سایت‌های یادگیری آنلاین است که توانسته طی بیش از ده سال
-                فعالیت خود بالغ بر ۱۹,۰۰۰ ساعت آموزش ویدیویی در قالب بیش از
-                ۵,۱۰۰ عنوان علمی، مهارتی و کاربردی را منتشر کند و به بزرگترین
-                پلتفرم آموزشی ایران مبدل شود.
-              </p>
-            </div>
-            <div className="col-span-2">
-              <div className="text-center">
-                <Image
-                  src={"/images/logos/logo.svg"}
-                  height="45"
-                  width={"120"}
-                  alt="faradars"
-                />
-                <p>1401</p>
-                <p>Ghalb</p>
-                <div className="flex justify-center">
-                  <Image
-                    src={"/images/logos/logo.svg"}
-                    height="48"
-                    width={"48"}
-                    alt="faradars"
-                  />
-                  <Image
-                    src={"/images/logos/logo.svg"}
-                    height="48"
-                    width={"48"}
-                    alt="faradars"
-                  />
-                  <Image
-                    src={"/images/logos/logo.svg"}
-                    height="48"
-                    width={"48"}
-                    alt="faradars"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
+      <AppDownload />
+      <RegOrLogin />
       <div className="flex justify-center bg-gray-700 ">
         <div className="container">
           <div className="flex p-4 justify-center">
