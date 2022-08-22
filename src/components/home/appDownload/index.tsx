@@ -7,7 +7,7 @@ const AppDownload = () => {
     return (
         <div className='container mx-auto pt-20 px-16 mb-6 '>
            
-            <div className="flex w-full justify-between py-12 px-12 border border-[#CED4DA] mx-auto rounded-[10px] bg-[url('/images/bg/bgApp.png')] bg-[length:1252px_220px] bg-center bg-no-repeat ">
+            <div className="flex w-full justify-between items-center py-12 px-12 border border-[#CED4DA] mx-auto rounded-[10px] bg-[url('/images/bg/bgApp.png')] bg-[length:1252px_220px] bg-center bg-no-repeat ">
                 <div className="flex ">
                     <div className=''>
                         <Link href="/">

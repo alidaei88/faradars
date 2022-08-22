@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { SVGProps } from "react";
 import AppDownload from "../home/appDownload";
-import RegOrLogin from "../home/regOrLogin"
+import RegOrLogin from "../home/regOrLogin";
+import Organizations from "../home/organizations";
+import Subjects from "../home/subjects";
 
 const navigation = {
   social: [
@@ -75,6 +77,8 @@ function Footer() {
     <footer>
       <AppDownload />
       <RegOrLogin />
+      <Organizations />
+      <Subjects />
       <div className="flex justify-center bg-gray-700 ">
         <div className="container">
           <div className="flex p-4 justify-center">
