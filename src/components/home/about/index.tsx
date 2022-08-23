@@ -14,10 +14,10 @@ const About = () => {
     }
 
     const handleCloseClick = () => {
-        setIsShow(prev => !prev)
+        setIsShow(false)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
     }
     
