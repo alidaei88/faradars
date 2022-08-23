@@ -55,7 +55,7 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
           {
             isFavorite
               ?
-              <BsFillHeartFill className="fill-red-700 " />
+              <BsFillHeartFill className="fill-red-500 " />
               :
               <FaRegHeart className="w-full h-full" />
           }

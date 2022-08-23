@@ -4,6 +4,7 @@ import AppDownload from "../home/appDownload";
 import RegOrLogin from "../home/regOrLogin";
 import Organizations from "../home/organizations";
 import Subjects from "../home/subjects";
+import About from "../home/about"
 
 const navigation = {
   social: [
@@ -79,6 +80,7 @@ function Footer() {
       <RegOrLogin />
       <Organizations />
       <Subjects />
+      <About />
       <div className="flex justify-center bg-gray-700 ">
         <div className="container">
           <div className="flex p-4 justify-center">

@@ -4,7 +4,7 @@ import Image from "next/image";
 const Teaching = () => {
     return (
         <div className='container mx-auto'>
-            <div className=' flex justify-around items-center py-12'>
+            <div className='flex lg:flex-row sm:flex-col xsm:flex-col justify-around items-center py-12 md:flex-col'>
                 <div className='w-1/4 h-auto'>
                     <Image
                         src="/images/teach/teaching.svg"

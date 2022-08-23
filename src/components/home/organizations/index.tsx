@@ -13,12 +13,12 @@ const Organizations = () => {
 
     return (
         <div className=' py-[10px] '>
-            <div className='flex flex-row justify-center items-center'>
+            <div className='flex flex-row md:flex-col sm:flex-col xsm:flex-col justify-center items-center'>
                 <div>
                     <p>سازمان‌های پیشرو و هدفمند با <a className='text-[#1e88e5] cursor-pointer font-semibold'>آموزش‌های سازمانی فرادرس (+)</a>، فرصت رشد و ارتقای مهارت را برای کارکنان خود فراهم ساخته‌اند.</p>
                 </div>
                 <div className=' w-1/3 flex justify-evenly items-center'>
-                    <div className='mx-1 my-2 w-[80px]'
+                    <div className='mx-1 my-2 w-[80PX] h-[80px]'
                         onMouseEnter={() => setActiveMobin(true)}
                         onMouseLeave={() => setActiveMobin(false)}>
                         {
