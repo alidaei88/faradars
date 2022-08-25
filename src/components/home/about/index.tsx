@@ -63,7 +63,14 @@ const About = () => {
                     <div className='flex flex-col w-3/6'>
                         <div className='mb-4'>
                             <h3 className='mt-3 mb-2 font-semibold text-[19px]'>درباره فرادرس</h3>
-                            <p className='text-[#4c555d] font-light'>سازمان علمی و آموزشی «فرادرس» (FaraDars) از قدیمی‌ترین وب‌سایت‌های یادگیری آنلاین است که توانسته طی بیش از ده سال فعالیت خود بالغ بر ۲۰,۰۰۰ ساعت آموزش ویدیویی در قالب بیش از ۵,۳۰۰ عنوان علمی، مهارتی و کاربردی را منتشر کند و به بزرگترین پلتفرم آموزشی ایران مبدل شود. <span onClick={() => handleMoreClick()} className='text-[#1e88e5] cursor-pointer'>مشاهده بیشتر </span></p>
+                            <p className='text-[#4c555d] font-light'>
+                                سازمان علمی و آموزشی «فرادرس» (FaraDars) از قدیمی‌ترین وب‌سایت‌های یادگیری آنلاین است که توانسته طی بیش از ده سال فعالیت خود بالغ بر ۲۰,۰۰۰ ساعت آموزش ویدیویی در قالب بیش از ۵,۳۰۰ عنوان علمی، مهارتی و کاربردی را منتشر کند و به بزرگترین پلتفرم آموزشی ایران مبدل شود.
+                                <span onClick={() => handleMoreClick()} className='text-[#1e88e5] cursor-pointer'>
+                                    {
+                                        !isShow && <span> مشاهده بیشتر </span>
+                                    }
+                                </span>
+                            </p>
                         </div>
                         {
                             isShow &&

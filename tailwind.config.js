@@ -10,6 +10,9 @@ module.exports = {
         'cardShadow': '0px 1px 1px -5px rgba(0, 0, 0, 0.3)',
       }
     },
+    animation: {
+      bgFooter: 'pulse 4s ease-in-out infinite',
+    },
     screens: {
       "xxsm": '150px',
       // => @media (min-width: 640px) { ... }

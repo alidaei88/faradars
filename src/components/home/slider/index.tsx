@@ -46,7 +46,7 @@ export default function HomeSlider(props: any) {
         <div>
           <Link href="#">
             <a>
-              <button className="w-full inline-flex items-center justify-center px-10 py-3 mt-8 ml-14 rounded-sm text-white bg-[#1e88e5] sm:w-auto sm:text-sm float-left hover:bg-[#1774c6]">
+              <button className=" inline-flex items-center justify-center px-12 py-3 mt-2 lg:ml-12 md:ml-9 sm:ml-7 xsm:ml-3 rounded-sm text-white text-sm font-medium bg-[#1e88e5] sm:w-auto float-left hover:bg-[#1774c6]">
                 فهرست کامل <FaAngleLeft className="mr-1 font-semibold text-lg" />
               </button>
             </a>

@@ -41,8 +41,8 @@ const MainMenu: FC = () => {
     <nav className=" w-full m-auto h-[60px] xl:px-8 xxsm:px-2 sticky top-0 right-0 z-10 bg-white border border-b border-[#E3E3E3]-100">
       <div className="xl:container xxsm:w-full flex xl:justify-start  px-[16px] h-[40px] items-center mx-auto my-[10px] xxsm:justify-between">
         <div className="flex items-center">
-        <div className="xl:hidden ml-2">
-          {/* <GiHamburgerMenu className="" /> */}
+        <div className="xl:hidden cursor-pointer ml-2">
+         
           <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 1.17391C0 0.525815 0.525815 0 1.17391 0H20.7391C21.3897 0 21.913 0.525815 21.913 1.17391C21.913 1.82446 21.3897 2.34783 20.7391 2.34783H1.17391C0.525815 2.34783 0 1.82446 0 1.17391ZM0 9C0 8.34946 0.525815 7.82609 1.17391 7.82609H20.7391C21.3897 7.82609 21.913 8.34946 21.913 9C21.913 9.65054 21.3897 10.1739 20.7391 10.1739H1.17391C0.525815 10.1739 0 9.65054 0 9ZM20.7391 18H1.17391C0.525815 18 0 17.4766 0 16.8261C0 16.1755 0.525815 15.6522 1.17391 15.6522H20.7391C21.3897 15.6522 21.913 16.1755 21.913 16.8261C21.913 17.4766 21.3897 18 20.7391 18Z"
               fill="#6C757D"
@@ -64,7 +64,7 @@ const MainMenu: FC = () => {
           </Link>
           </div>
           </div>
-        <div className="xl:hidden mb-2 ml-2">
+        <div className="xl:hidden cursor-pointer mb-2 ml-2">
           <svg className="fill-[#495057]"
             width="22"
             height="22"

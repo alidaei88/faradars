@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useContext, useEffect } from "react";
 import { FaCartPlus, FaRegHeart, FaAngleLeft } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai"
 import { BsFillHeartFill } from "react-icons/bs"
 import { FC, ObjectHTMLAttributes, useState } from "react";
 import { thousandSeprator } from "../../utils/helper";
+import { CurrentUserContext } from "../../ContextAPi";
+import Modal from "../Modal";
 // import TooltipModal from "../tooltipModal";
 // import ReactTooltip from 'react-tooltip';
 
@@ -24,6 +27,10 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
   console.log(product)
   const [tooltipShow, setTooltipShow] = useState(false)
   const [isFavorite, setIsFavorite] = useState(false)
+  const [isLogin, setIsLogin] = useState("")
+  const [open, setOpen] = useState(false)
+  const { userData, setUserData } = useContext(CurrentUserContext)
+
 
   const mouseEnterHandler = () => {
     setTooltipShow(true)
@@ -33,8 +40,28 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
     setTooltipShow(false)
   }
   const likeHandel = () => {
-    setIsFavorite(prev => !prev)
+
+    isLogin ?  setIsFavorite(prev => !prev) : setOpen(true)
   }
+
+  useEffect(() => {
+    try {
+      const storageData = JSON.parse(localStorage.getItem("data") || "")
+      setUserData(storageData)
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+
+  useEffect(() => {
+    try {
+      setIsLogin(userData.token)
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }, [userData])
 
   return (
     <div className="w-full mb-1 flex flex-col border border-[#0000001a] rounded-[3px] shadow-cardShadow cursor-pointer hover:shadow-md hover:shadow-amber-200 hover:border-amber-200 mx-0 ">
@@ -60,6 +87,7 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
               <FaRegHeart className="w-full h-full" />
           }
         </button>
+        <Modal open={ open } setOpen={ setOpen } />
         {/* <ReactTooltip  className="" /> */}
         {
           product.title.includes("وبینار") && <p className="bg-[#FFA500] z-30 text-xs text-white font-light absolute top-2 right-2 px-4 py-1 rounded-md">وبینار</p>
@@ -80,7 +108,7 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
           </Link>
         </h3>
         {
-         product.title.includes("وبینار") && <p className="text-[0.95rem] text-gray-500 font-light pr-4">پنجشنبه, 3 شهریور 1401</p>
+         product.title.includes("وبینار") && <p className="text-[12px] text-gray-500 font-light pr-4">پنج‌شنبه, 3 شهریور 1401</p>
         }
       </div>
       <div className="h-[17%] bg-[#f7f7f7] flex items-center justify-between align-baseline ">

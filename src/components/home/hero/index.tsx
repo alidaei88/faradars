@@ -40,13 +40,13 @@ export default function HomeHero({ tags }: any) {
                   type="search"
                   name="search"
                   id="search"
-                  className="h-9 px-2 py-3 shadow-sm w-full sm:text-sm border-[#90c4f2] rounded-[0.25rem] focus:outline-none focus:border-2 focus:border-[#80bdff] placeholder:font-thin placeholder:text-[#495057] placeholder:xl:text-sm placeholder:xxsm:text-xs"
+                  className="h-9 px-2 py-3 shadow-sm w-full sm:text-sm border-[#90c4f2] rounded-[0.25rem] focus:outline-none focus:border-2 focus:border-[#80bdff] placeholder:font-thin placeholder:text-[#495057] "
                   placeholder="جستجوی آموزش ..."
                   ref={searchRef}
                 />
               </div>
               <button
-                className="mt-3 w-full inline-flex items-center bg-[#28A745] justify-center px-4 py-2 border border-transparent shadow-sm font-extralight text-[#ffffff] hover:bg-[#218838] hover:border-[#1e7e34] sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm mr-2"
+                className="mt-3 w-full inline-flex items-center bg-[#28a745] justify-center px-4 py-2 border border-transparent shadow-sm font-extralight rounded-[3px] text-[#ffffff] hover:bg-[#218838] hover:border-[#1e7e34] sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm mr-2"
                 onClick={submitHandel}
               >
                 جستجو
