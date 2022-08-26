@@ -61,7 +61,7 @@ export default function Modal({open, setOpen} :any) {
                 <button
                   type="button"
                   className="font-medium text-[15px]  rounded-[10px] mt-3 ml-3 mr-3 w-[115px] flex justify-center h-[42px] flex-row-reverse 
-                  bg-transparent hover:bg-[#e5e7eb] text-black    border border-[rgb(217 214 214)] p-[8px_18px]"
+                  bg-transparent hover:bg-[#e5e7eb] text-black focus-visible:border-[rgb(217 214 214)] border border-[rgb(217 214 214)] p-[8px_18px]"
                   onClick={() => setOpen(false)}
                   ref={cancelButtonRef}
                 >

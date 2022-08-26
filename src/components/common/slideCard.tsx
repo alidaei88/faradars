@@ -108,7 +108,7 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
           </Link>
         </h3>
         {
-         product.title.includes("وبینار") && <p className="text-[12px] text-gray-500 font-light pr-4">پنج‌شنبه, 3 شهریور 1401</p>
+         product.title.includes("وبینار") && <p className="text-[12px] text-gray-500 font-light mb-3 pr-4">پنج‌شنبه, 3 شهریور 1401</p>
         }
       </div>
       <div className="h-[17%] bg-[#f7f7f7] flex items-center justify-between align-baseline ">
@@ -125,7 +125,7 @@ const SlideCard: FC<ISlidCardProps> = (props) => {
           })()}
 
         </p>
-        <div className="bg-[#5fbdec] text-white px-3 py-3">
+        <div className="bg-[#5fbdec] text-white px-3 py-3 hover:bg-[#4aa6d4]">
           {
                       (() => {
                         if (product.price == 10000) {

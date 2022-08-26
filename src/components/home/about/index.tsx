@@ -22,8 +22,8 @@ const About = () => {
     }
     
     return (
-        <div className='bg-[#e8e9ea] pt-[48px]'>
-            <div className='w-3/5 mx-auto px-8 py-12'>
+        <div className='bg-[#e8e9ea] pt-[48px] md:w-full md:mx-0'>
+            <div className='xlg:w-3/5 lg:w-full md:w-full sm:w-full xsm:w-full mx-auto px-8 py-12'>
                 <div className='flex justify-center items-start'>
                     <div className='flex w-1/6 flex-col justify-start'>
                         <p className=' mt-3 font-semibold mb-2 text-[19px]'>لینک‌های مهم</p>
@@ -106,7 +106,7 @@ const About = () => {
                             </Link>
                         </div>
                         <div className='flex flex-col items-center mb-6'>
-                            <small className='font-light mt-1'>©فرادرس ۱۳۸۷-۱۴۰۱. تمامی حقوق محفوظ است.</small>
+                            <small className='font-light mt-1 w-[244.72px] '>©فرادرس ۱۳۸۷-۱۴۰۱. تمامی حقوق محفوظ است.</small>
                             <small className='flex items-center '>
                                 <span className='text-[#202325] font-light'>ساخته شده با</span>
                                 <span className='text-[#FF0000] mx-1 text-base'><TiHeart /></span>
